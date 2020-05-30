@@ -27,6 +27,8 @@ public class SmithWaterman {
     String ref = "aattgccgccgtcgttttcagcagttatgtcagatc";
     SmithWaterman sw = new SmithWaterman(read, ref);
     sw.execute(true);
+    System.out
+        .println("row: " + sw.getResultRow() + ", col: " + sw.getResultCol());
     System.out.println("cigar: " + sw.getCigar());
   }
 
@@ -123,19 +125,20 @@ public class SmithWaterman {
       int diagScore = mat[row - 1][col - 1];
 
 //      SmithWaterman.print(row + "," + col + " - ");
-      if (backScoreSet.contains(tempScore - leftScore)) {
+      if (tempScore - leftScore == INDEL) {
         if (col == 1) {
           break;
         }
         cigar.append("D");
         col--;
-      } else if (backScoreSet.contains(tempScore - upScore)) {
+      } else if (tempScore - upScore == INDEL) {
         if (row == 1) {
           break;
         }
         cigar.append("I");
         row--;
-      } else if (backScoreSet.contains(tempScore - diagScore)) {
+      } else if (tempScore - diagScore == MISMATCH
+          || tempScore - diagScore == MATCH) {
         if (row == 1 || col == 1) {
           break;
         }

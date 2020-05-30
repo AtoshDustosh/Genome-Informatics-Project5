@@ -28,7 +28,7 @@ public class AlignResult {
     this.cigar = cigar;
     this.startRead = startRead;
     this.startRef = startRef;
-    this.pos = pos + startRef - 1; // smith-waterman is a local alignment algorithm
+    this.pos = pos; // smith-waterman is a local alignment algorithm
     // and thus CIGAR may not start from the beginning of the read
     this.fastqRead = fastqRead;
   }

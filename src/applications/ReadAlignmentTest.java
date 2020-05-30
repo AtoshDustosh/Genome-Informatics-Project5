@@ -58,7 +58,7 @@ class ReadAlignmentTest {
 
   @Test
   void test2() {
-    System.out.println(this.aligner.subSequence(6535550, 6535563));
+    System.out.println(this.aligner.faSubSequence(6535553 - 1, 6535563));
   }
 
 }

@@ -158,7 +158,7 @@ public class ReadAligner {
     return this.faManager.faHeader();
   }
 
-  public String subSequence(int start, int end) {
+  public String faSubSequence(int start, int end) {
     return this.faManager.subSequence(start, end);
   }
 
